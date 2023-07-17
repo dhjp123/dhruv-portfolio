@@ -26,6 +26,52 @@ for (let i = 0; i < navbarLinks.length; i++) {
     navToggleBtn.classList.toggle("active");
   });
 }
+const greetingElement = document.getElementById("greeting");
+const nameElement = document.getElementById("name");
+const descriptionElement = document.getElementById("description");
+
+const greeting = greetingElement.innerText;
+const name = nameElement.innerText;
+const description = descriptionElement.innerText;
+
+greetingElement.innerText = "";
+nameElement.innerText = "";
+descriptionElement.innerText = "";
+
+let greetingIndex = 0;
+let nameIndex = 0;
+let descriptionIndex = 0;
+
+function displayGreeting() {
+  if (greetingIndex < greeting.length) {
+    greetingElement.innerText += greeting[greetingIndex];
+    greetingIndex++;
+    setTimeout(displayGreeting, 100); // Adjust the delay (in milliseconds) between characters if needed
+  } else {
+    setTimeout(displayName, 500); // Delay before displaying the name
+  }
+}
+
+function displayName() {
+  if (nameIndex < name.length) {
+    nameElement.innerText += name[nameIndex];
+    nameIndex++;
+    setTimeout(displayName, 100); // Adjust the delay (in milliseconds) between characters if needed
+  } else {
+    setTimeout(displayDescription, 500); // Delay before displaying the description
+  }
+}
+
+function displayDescription() {
+  if (descriptionIndex < description.length) {
+    descriptionElement.innerText += description[descriptionIndex];
+    descriptionIndex++;
+    setTimeout(displayDescription, 100); // Adjust the delay (in milliseconds) between characters if needed
+  } 
+}
+
+displayGreeting();
+
 
 
 
